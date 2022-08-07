@@ -107,7 +107,7 @@
                 
             if (isNotEmpty(u) & isNotEmpty(p)){
                 $.ajax({
-                    url: 'authenticate.php',
+                    url: '../php/authenticate.php',
                     method: 'POST',
                     dataType: 'text',
                     data: {
@@ -116,11 +116,12 @@
                         pass: p.val(),
                     },
                     success: function(data){
-                        if (data == "ERROR"){
-                            alert('Wrong login creditinals entered!');
+                        if (data.match('OK')){
+                            //alert(data +"success");
+                            window.location = "homepage.html";
                         }
                         else {
-                            window.location = "homepage.html";
+                            alert("Incorrect username or password");
                         }
                     }
                 })
@@ -137,7 +138,7 @@
             if (isNotEmpty(name) & isNotEmpty(username) & isNotEmpty(password) & isNotEmpty(check)){
                 if(password.val() == check.val()){
                     $.ajax({
-                        url: 'authenticate.php',
+                        url: '../php/authenticate.php',
                         method: 'POST',
                         dataType: 'text',
                         data: {
@@ -147,11 +148,11 @@
                             password: password.val(),
                         },
                         success: function(data){
-                            if (data == "Successfull registration!"){
-                                alert('Successfull registration!');
+                            if (data.match('OK')){
+                                alert("Succesfully registered!");
                                 window.location = "index.html";
                             } else {
-                                alert('Registration failed. Please try again!');
+                                alert("Error during registration. Please try again.");
                             }
                         }
                     })

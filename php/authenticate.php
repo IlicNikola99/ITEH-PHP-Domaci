@@ -7,7 +7,7 @@
             $username = $_POST['username'];
             $pass = $_POST['pass'];
 
-            $query = mysqli_query($conn,"SELECT * FROM `user` WHERE username = '$username' AND password = '$password'");
+            $query = mysqli_query($conn,"SELECT * FROM `user` WHERE username = '$username' AND password = '$pass' ");
             
             if(mysqli_num_rows($query) == 0) {
                 echo "ERROR";
@@ -27,7 +27,7 @@
                 $sql="INSERT INTO `user` (`fullname`, `username`, `password`) VALUES ('$name', '$username', '$password')";
 		
                 if ($conn->query($sql) === TRUE) {
-                    echo "Successfully saved user information";
+                    echo 'OK';
                 } else {
                     echo "Error while saving user information";
                 }
