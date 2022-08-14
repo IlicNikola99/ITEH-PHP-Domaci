@@ -6,15 +6,15 @@
      }
  
        
-     if($conn) {
-        echo('Successfully connected to the server!\n');
-    }
+    //  if($conn) {
+    //     echo('Successfully connected to the server!\n');
+    // }
 
      if(!mysqli_select_db($conn, 'itehdomaci')) {
          echo 'Database does not exist!';
      }
 
-     if(mysqli_select_db($conn, 'itehdomaci')) {
-        echo 'Database found!';
-    }
+    //  if(mysqli_select_db($conn, 'itehdomaci')) {
+    //     echo 'Database found!';
+    // }
 ?>
